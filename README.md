@@ -1,0 +1,2 @@
+# Appetizer 
+A web-based visual app builder where users design fully-functional Android apps through a canvas UI (positioning, styling, interactions). The editor is built in React and stores designs as a structured intermediate representation (IR). When the user exports, the IR is translated to idiomatic Flutter code (widgets, files, assets, routing, state) and packaged either as a downloadable Flutter codebase (well-structured) or as a signed APK produced by a cloud build.
