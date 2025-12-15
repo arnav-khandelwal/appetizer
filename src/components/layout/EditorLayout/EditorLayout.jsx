@@ -1,7 +1,7 @@
 import React from 'react';
-import TopBar from './TopBar';
-import LeftSidebar from './LeftSidebar';
-import RightSidebar from './RightSidebar';
+import TopBar from '../TopBar/TopBar';
+import LeftSidebar from '../LeftSidebar/LeftSidebar';
+import RightSidebar from '../RightSidebar/RightSidebar';
 import './EditorLayout.scss';
 
 /**

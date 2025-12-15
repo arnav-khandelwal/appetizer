@@ -1,5 +1,5 @@
 import React from 'react';
-import EditorPage from './pages/EditorPage';
+import EditorPage from './pages/EditorPage/EditorPage';
 import './styles/global.scss';
 
 /**

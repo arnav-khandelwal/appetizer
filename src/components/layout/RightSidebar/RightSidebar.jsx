@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SectionHeader from '../common/SectionHeader';
-import Panel from '../common/Panel';
+import SectionHeader from '../../common/SectionHeader/SectionHeader';
+import Panel from '../../common/Panel/Panel';
 import './RightSidebar.scss';
 
 /**

@@ -1,5 +1,5 @@
 import React from 'react';
-import DeviceFrame from './DeviceFrame';
+import DeviceFrame from '../DeviceFrame/DeviceFrame';
 import './CanvasArea.scss';
 
 /**

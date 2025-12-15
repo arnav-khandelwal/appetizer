@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import EditorLayout from '../components/layout/EditorLayout';
-import CanvasArea from '../components/canvas/CanvasArea';
+import EditorLayout from '../../components/layout/EditorLayout/EditorLayout';
+import CanvasArea from '../../components/canvas/CanvasArea/CanvasArea';
 import './EditorPage.scss';
 
 /**
