@@ -1,0 +1,91 @@
+@import '../../styles/variables.scss';
+
+.left-sidebar {
+  width: $sidebar-width;
+  background-color: $color-white;
+  border-right: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  /* === HEADER === */
+  &__header {
+    padding: $spacing-lg;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  /* === CONTENT === */
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    padding: $spacing-lg;
+  }
+
+  &__section {
+    margin-bottom: $spacing-xl;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* === COMPONENT ITEMS === */
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-sm;
+  }
+}
+
+/* === COMPONENT ITEM CARD === */
+.component-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background-color: $color-base-bg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  cursor: grab;
+  transition: all $transition-base;
+
+  &:hover {
+    background-color: $color-white;
+    border-color: $color-accent-light;
+    box-shadow: $shadow-sm;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    background-color: $color-accent-primary;
+    color: $color-white;
+    border-radius: $radius-sm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: $font-weight-semibold;
+    font-size: $font-size-sm;
+  }
+
+  &__label {
+    font-size: $font-size-xs;
+    color: $color-text-secondary;
+    text-align: center;
+  }
+}

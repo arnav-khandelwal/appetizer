@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+.panel {
+  background-color: $color-white;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-base;
+
+  &--no-border {
+    border: none;
+  }
+
+  &--no-shadow {
+    box-shadow: none;
+  }
+
+  /* === PADDING VARIANTS === */
+  &--padding-none {
+    padding: 0;
+  }
+
+  &--padding-sm {
+    padding: $spacing-md;
+  }
+
+  &--padding-md {
+    padding: $spacing-lg;
+  }
+
+  &--padding-lg {
+    padding: $spacing-xl;
+  }
+}

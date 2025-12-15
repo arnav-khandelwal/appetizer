@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+
+.editor-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  /* === MAIN EDITOR AREA === */
+  &__main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* === CANVAS AREA === */
+  &__canvas {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+}

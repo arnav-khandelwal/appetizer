@@ -1,0 +1,71 @@
+@import '../../styles/variables.scss';
+
+.device-frame {
+  position: relative;
+  width: 375px;
+  height: 667px;
+  background-color: $color-white;
+  border-radius: 32px;
+  box-shadow: $shadow-lg, 0 0 0 8px #2c3e50, 0 0 0 10px $color-border;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  /* === NOTCH (STATUS BAR AREA) === */
+  &__notch {
+    height: 28px;
+    background-color: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__notch-inner {
+    width: 60px;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+  }
+
+  /* === SCREEN AREA === */
+  &__screen {
+    flex: 1;
+    background-color: $color-white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  &__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: $spacing-lg;
+    text-align: center;
+
+    p {
+      color: $color-text-muted;
+      font-size: $font-size-sm;
+    }
+  }
+
+  /* === BOTTOM BAR (HOME GESTURE INDICATOR) === */
+  &__bottom-bar {
+    height: 20px;
+    background-color: $color-white;
+    border-top: 1px solid $color-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background-color: #e0e0e0;
+      border-radius: 2px;
+    }
+  }
+}

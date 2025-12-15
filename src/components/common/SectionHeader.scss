@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+
+  &__content {
+    flex: 1;
+  }
+
+  &__title {
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    margin: $spacing-xs 0 0 0;
+  }
+
+  &__action {
+    flex-shrink: 0;
+  }
+}

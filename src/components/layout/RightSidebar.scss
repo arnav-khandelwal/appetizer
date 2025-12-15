@@ -1,0 +1,93 @@
+@import '../../styles/variables.scss';
+
+.right-sidebar {
+  width: $sidebar-width;
+  background-color: $color-white;
+  border-left: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+
+  /* === HEADER === */
+  &__header {
+    padding: $spacing-lg;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin: 0;
+  }
+
+  /* === TABS === */
+  &__tabs {
+    display: flex;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__tab {
+    flex: 1;
+    padding: $spacing-md;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: $color-text-secondary;
+    cursor: pointer;
+    transition: all $transition-base;
+
+    &:hover {
+      color: $color-text-primary;
+      background-color: $color-base-bg;
+    }
+
+    &--active {
+      color: $color-accent-primary;
+      border-bottom-color: $color-accent-primary;
+    }
+  }
+
+  /* === CONTENT === */
+  &__content {
+    flex: 1;
+    overflow-y: auto;
+    padding: $spacing-lg;
+  }
+
+  &__panel {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+/* === PROPERTY SKELETON (PLACEHOLDER UI) === */
+.property-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+
+  &__item {
+    height: 40px;
+    background: linear-gradient(
+      90deg,
+      $color-base-bg 0%,
+      #e8eaed 50%,
+      $color-base-bg 100%
+    );
+    background-size: 200% 100%;
+    border-radius: $radius-md;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
