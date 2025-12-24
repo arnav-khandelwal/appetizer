@@ -1,8 +1,10 @@
 /**
- * DeviceSelector - UI for switching device presets
+ * DeviceSelector - Floating UI for switching device presets
  * 
  * Allows users to preview their app on different device sizes.
  * Device selection is EDITOR STATE, not persisted to IR.
+ * 
+ * This component floats at the top-right of the canvas.
  */
 
 import React from 'react';
@@ -23,7 +25,6 @@ export const DeviceSelector: React.FC<DeviceSelectorProps> = ({
 }) => {
   return (
     <div className="device-selector">
-      <label className="device-selector__label">Device Preview</label>
       <select
         className="device-selector__dropdown"
         value={selectedDevice.id}
@@ -33,6 +34,7 @@ export const DeviceSelector: React.FC<DeviceSelectorProps> = ({
             onDeviceChange(device);
           }
         }}
+        aria-label="Select device preset"
       >
         {DEVICE_PRESETS.map((device) => (
           <option key={device.id} value={device.id}>

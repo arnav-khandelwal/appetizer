@@ -185,6 +185,7 @@ export const exampleAppIR: AppIR = {
       // Style: Primary brand color
       style: {
         borderRadius: 8,
+        backgroundColor: '#f6733bff',
       },
       
       // Layout: Full width button
@@ -196,7 +197,7 @@ export const exampleAppIR: AppIR = {
       // Button-specific properties
       props: {
         label: 'Login Again Brother',
-        variant: ButtonVariant.SECONDARY,
+        variant: ButtonVariant.PRIMARY,
         onPress: 'action-login', // Event handler ID
       },
     },
@@ -262,7 +263,7 @@ export const productCardExample: AppIR = {
       id: 'node-image-stack',
       type: NodeType.STACK,
       parentId: 'node-card',
-      children: ['node-image', 'node-badge'],
+      children: [ 'node-badge', 'node-image'],
       
       style: {},
       
@@ -272,7 +273,7 @@ export const productCardExample: AppIR = {
       },
       
       props: {
-        alignment: Alignment.START,
+        alignment: Alignment.CENTER,
       },
     },
 

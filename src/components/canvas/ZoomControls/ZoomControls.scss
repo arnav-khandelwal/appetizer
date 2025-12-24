@@ -1,0 +1,84 @@
+@use '../../../styles/variables.scss' as *;
+
+.zoom-controls {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  display: flex;
+  gap: 4px;
+  background: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 4px;
+  z-index: 100;
+}
+
+.zoom-controls__button {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: $color-text-primary;
+  font-size: 20px;
+  font-weight: $font-weight-bold;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: $font-family-base;
+  
+  &:hover:not(:disabled) {
+    background: $color-base-bg;
+  }
+  
+  &:active:not(:disabled) {
+    background: darken($color-base-bg, 5%);
+    transform: scale(0.95);
+  }
+  
+  &:disabled {
+    color: $color-text-muted;
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $color-accent-primary;
+    outline-offset: 2px;
+  }
+}
+
+.zoom-controls__display {
+  min-width: 56px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: $font-family-base;
+  padding: 0 $spacing-sm;
+  
+  &:hover {
+    background: $color-base-bg;
+    color: $color-text-primary;
+  }
+  
+  &:active {
+    background: darken($color-base-bg, 5%);
+    transform: scale(0.95);
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $color-accent-primary;
+    outline-offset: 2px;
+  }
+}

@@ -15,10 +15,19 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
-  padding: $spacing-lg;
+  padding: $spacing-xl;
   
   // Smooth scrolling
   scroll-behavior: smooth;
+}
+
+.canvas-scale {
+  // Pure visual scale transform
+  // Does NOT affect layout calculations or IR behavior
+  transition: transform 0.2s ease-out;
+  
+  // Ensure proper rendering during scale
+  will-change: transform;
 }
 
 .canvas-error {

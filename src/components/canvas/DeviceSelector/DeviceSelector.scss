@@ -1,21 +1,14 @@
 @use '../../../styles/variables.scss' as *;
 
 .device-selector {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
-  padding: $spacing-md;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
   background: $color-white;
-  border-bottom: 1px solid $color-border;
-}
-
-.device-selector__label {
-  font-family: $font-family-base;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-semibold;
-  color: $color-text-secondary;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  border-radius: $radius-lg;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
 }
 
 .device-selector__dropdown {
@@ -28,6 +21,7 @@
   color: $color-text-primary;
   cursor: pointer;
   transition: all 0.2s;
+  min-width: 220px;
   
   &:hover {
     border-color: $color-accent-primary;

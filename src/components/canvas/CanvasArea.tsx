@@ -14,6 +14,7 @@ import { AppIR } from '../../ir.types';
 import { NodeRenderer } from './NodeRenderer';
 import { DeviceFrame } from './DeviceFrame/DeviceFrame';
 import { DeviceSelector } from './DeviceSelector/DeviceSelector';
+import { ZoomControls } from './ZoomControls/ZoomControls';
 import { DEFAULT_DEVICE } from './DeviceFrame/devicePresets';
 import './CanvasArea.scss';
 
@@ -31,6 +32,9 @@ export const IRContext = createContext<AppIR | null>(null);
 export const CanvasArea = ({ appIR, currentPageId }: CanvasAreaProps) => {
   // Editor state: selected device (NOT part of IR)
   const [selectedDevice, setSelectedDevice] = useState(DEFAULT_DEVICE);
+  
+  // Editor state: canvas zoom (NOT part of IR)
+  const [zoom, setZoom] = useState(0.8);
 
   // Find the current page
   const currentPage = appIR.pages.find(page => page.id === currentPageId);
@@ -62,19 +66,33 @@ export const CanvasArea = ({ appIR, currentPageId }: CanvasAreaProps) => {
   return (
     <IRContext.Provider value={appIR}>
       <div className="canvas-area">
-        {/* Device selector (editor UI) */}
+        {/* Floating device selector (editor UI) */}
         <DeviceSelector 
           selectedDevice={selectedDevice}
           onDeviceChange={setSelectedDevice}
         />
 
-        {/* Canvas viewport with device frame */}
+        {/* Canvas viewport with zoom transform */}
         <div className="canvas-viewport">
-          <DeviceFrame device={selectedDevice}>
-            {/* IR renderer starts here */}
-            <NodeRenderer nodeId={rootNodeId} />
-          </DeviceFrame>
+          <div 
+            className="canvas-scale"
+            style={{ 
+              transform: `scale(${zoom})`,
+              transformOrigin: 'center center'
+            }}
+          >
+            <DeviceFrame device={selectedDevice}>
+              {/* IR renderer starts here */}
+              <NodeRenderer nodeId={rootNodeId} />
+            </DeviceFrame>
+          </div>
         </div>
+
+        {/* Zoom controls (editor UI) */}
+        <ZoomControls 
+          zoom={zoom}
+          onZoomChange={setZoom}
+        />
       </div>
     </IRContext.Provider>
   );
