@@ -116,7 +116,7 @@ export const LayoutNode = ({ node }: LayoutNodeProps) => {
 
   return (
     <div style={layoutStyles}>
-      {children.map((childId, index) => (
+      {children.map((childId) => (
         <div
           key={childId}
           style={

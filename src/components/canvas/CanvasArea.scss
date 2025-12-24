@@ -2,26 +2,23 @@
 
 .canvas-area {
   flex: 1;
-  background-color: $color-base-bg;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: auto;
+  flex-direction: column;
+  overflow: hidden;
   position: relative;
 }
 
 .canvas-viewport {
-  // The viewport contains the rendered IR
-  // It should be scrollable and centered
-  min-width: 375px; // Minimum mobile width
-  max-width: 100%;
-  background-color: $color-white;
-  box-shadow: $shadow-lg;
-  border-radius: $radius-md;
-  overflow: hidden;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: $spacing-lg;
   
-  // Ensure proper box model
-  box-sizing: border-box;
+  // Smooth scrolling
+  scroll-behavior: smooth;
 }
 
 .canvas-error {
@@ -32,4 +29,5 @@
   color: #c00;
   font-family: $font-family-base;
   font-size: $font-size-base;
+  margin: auto;
 }

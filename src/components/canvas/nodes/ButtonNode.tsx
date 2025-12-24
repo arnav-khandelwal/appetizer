@@ -23,7 +23,8 @@ export const ButtonNode = ({ node }: ButtonNodeProps) => {
         };
       case ButtonVariant.SECONDARY:
         return {
-          backgroundColor: style?.backgroundColor || '#d31f1fff',
+          backgroundColor: style?.backgroundColor || 
+          '#6B7280',
           color: '#FFFFFF',
           border: 'none',
         };

@@ -1,0 +1,41 @@
+@use '../../../styles/variables.scss' as *;
+
+.device-selector {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-md;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+}
+
+.device-selector__label {
+  font-family: $font-family-base;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: $color-text-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.device-selector__dropdown {
+  font-family: $font-family-base;
+  font-size: $font-size-sm;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-white;
+  color: $color-text-primary;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  &:hover {
+    border-color: $color-accent-primary;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $color-accent-primary;
+    box-shadow: 0 0 0 3px rgba(74, 95, 127, 0.1);
+  }
+}
