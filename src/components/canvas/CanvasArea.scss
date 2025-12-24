@@ -1,0 +1,35 @@
+@use '../../styles/variables.scss' as *;
+
+.canvas-area {
+  flex: 1;
+  background-color: $color-base-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  position: relative;
+}
+
+.canvas-viewport {
+  // The viewport contains the rendered IR
+  // It should be scrollable and centered
+  min-width: 375px; // Minimum mobile width
+  max-width: 100%;
+  background-color: $color-white;
+  box-shadow: $shadow-lg;
+  border-radius: $radius-md;
+  overflow: hidden;
+  
+  // Ensure proper box model
+  box-sizing: border-box;
+}
+
+.canvas-error {
+  padding: $spacing-xl;
+  background-color: #fee;
+  border: 1px solid #fcc;
+  border-radius: $radius-md;
+  color: #c00;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}

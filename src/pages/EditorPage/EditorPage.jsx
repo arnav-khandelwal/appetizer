@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import EditorLayout from '../../components/layout/EditorLayout/EditorLayout';
-import CanvasArea from '../../components/canvas/CanvasArea/CanvasArea';
+import CanvasArea from '../../components/canvas/CanvasArea';
+import { exampleAppIR, productCardExample } from '../../ir.example';
 import './EditorPage.scss';
 
 /**
@@ -17,7 +18,7 @@ const EditorPage = () => {
         projectName={projectName}
         onProjectNameChange={setProjectName}
       >
-        <CanvasArea />
+        <CanvasArea appIR={exampleAppIR} currentPageId="page-1" />
       </EditorLayout>
     </div>
   );
