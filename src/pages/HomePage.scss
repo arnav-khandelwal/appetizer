@@ -1,0 +1,104 @@
+@use '../styles/variables.scss' as *;
+
+// Local palette (mocha + offwhite)
+$home-bg-top: #2a1f1a; // mocha dark
+$home-bg-mid: #201713;
+$home-bg-bottom: #17110e;
+$home-offwhite: #f7f4ef;
+$home-muted: rgba(247, 244, 239, 0.72);
+$home-card: #f6f1e8; // soft offwhite card
+$home-card-text: #2b211d;
+$home-accent: #8b5e34; // mocha accent
+$home-accent-hover: #734b2a;
+
+.home-page {
+  height: 100vh;
+  overflow-y: auto; // allow scrolling independently of global body
+  background: radial-gradient(1200px 600px at 10% 0%, #32251f 0%, transparent 60%),
+              linear-gradient(180deg, $home-bg-top 0%, $home-bg-mid 50%, $home-bg-bottom 100%);
+  color: $home-offwhite;
+}
+
+.home-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  background: rgba(23, 17, 14, 0.6);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  &__brand { display: flex; align-items: center; gap: 10px; }
+  &__logo { width: 28px; height: 28px; border-radius: 6px; background: $home-offwhite; color: $home-card-text; display: grid; place-items: center; font-weight: 700; }
+  &__title { color: $home-offwhite; text-decoration: none; font-weight: 600; }
+  &__links { display: flex; align-items: center; gap: 16px; }
+  &__links a { color: $home-muted; text-decoration: none; font-weight: 500; }
+  &__links a:hover { color: $home-offwhite; }
+  &__cta { background: $home-accent; color: $home-offwhite; padding: 8px 12px; border-radius: 8px; }
+  &__cta:hover { background: $home-accent-hover; }
+}
+
+.hero {
+  padding: 64px 24px 24px;
+  text-align: center;
+
+  &__title { font-size: clamp(36px, 6vw, 72px); font-weight: 700; letter-spacing: -0.02em; }
+  &__title span { display: block; }
+  &__subtitle { margin: 16px auto 0; max-width: 800px; color: $home-muted; font-size: clamp(16px, 2.2vw, 22px); }
+  &__actions { margin-top: 20px; }
+}
+
+.home-cta {
+  display: inline-block;
+  background: $home-accent;
+  color: $home-offwhite;
+  padding: 12px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+}
+.home-cta:hover { background: $home-accent-hover; }
+
+.hero__mock { margin: 40px auto 0; max-width: 980px; padding: 0 24px; }
+.device-mock { margin: 0 auto; width: 100%; border-radius: 16px; background: rgba(247, 244, 239, 0.06); border: 1px solid rgba(247, 244, 239, 0.12); box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
+.device-bar { height: 14px; background: rgba(247, 244, 239, 0.16); border-top-left-radius: 16px; border-top-right-radius: 16px; }
+.device-screen { padding: 18px; }
+.screen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.screen-grid > div { height: 120px; background: $home-card; border-radius: 12px; box-shadow: $shadow-sm; }
+
+.features { padding: 64px 24px; }
+.features__grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.feature { background: rgba(247, 244, 239, 0.06); border: 1px solid rgba(247, 244, 239, 0.12); border-radius: 14px; padding: 20px; }
+.feature h3 { color: $home-offwhite; font-size: 20px; margin-bottom: 8px; }
+.feature p { color: $home-muted; }
+
+.showcase { padding: 64px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1100px; margin: 0 auto; }
+.showcase__card { height: 220px; border-radius: 14px; background: $home-card; box-shadow: $shadow-md; }
+
+.cta { padding: 80px 24px; text-align: center; }
+.cta h2 { font-size: clamp(28px, 4vw, 40px); color: $home-offwhite; }
+.cta p { margin: 8px 0 16px; color: $home-muted; }
+
+.footer {
+  background: $home-offwhite;
+  color: $home-card-text;
+  margin-top: 64px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+.footer__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1100px; margin: 0 auto; padding: 28px 24px; }
+.footer__brand { font-weight: 700; font-size: 18px; }
+.footer__heading { font-weight: 600; margin-bottom: 8px; }
+.footer a { color: $color-text-primary; text-decoration: none; display: block; margin-bottom: 6px; }
+.footer a:hover { text-decoration: underline; }
+.footer__text { color: $color-text-secondary; }
+.footer__bottom { border-top: 1px solid rgba(0,0,0,0.1); padding: 14px 24px; text-align: center; font-size: 14px; }
+
+// Responsive tweaks
+@media (max-width: 900px) {
+  .features__grid { grid-template-columns: 1fr; }
+  .showcase { grid-template-columns: 1fr; }
+}

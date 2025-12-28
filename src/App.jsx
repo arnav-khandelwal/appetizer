@@ -1,5 +1,6 @@
 import React from 'react';
 import EditorPage from './pages/EditorPage/EditorPage';
+import HomePage from './pages/HomePage';
 import './styles/global.scss';
 
 /**
@@ -8,6 +9,10 @@ import './styles/global.scss';
  * Renders the main EditorPage
  */
 function App() {
+  const path = typeof window !== 'undefined' ? window.location.pathname : '/editor';
+  if (path === '/' || path === '/index.html') {
+    return <HomePage />;
+  }
   return <EditorPage />;
 }
 

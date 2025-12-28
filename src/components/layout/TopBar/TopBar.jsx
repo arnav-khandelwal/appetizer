@@ -22,10 +22,10 @@ const TopBar = ({
     <div className={`topbar ${className}`} {...props}>
       {/* Left: Logo/Brand */}
       <div className="topbar__left">
-        <div className="topbar__logo">
+        <a className="topbar__logo" href="/" aria-label="Go to Home">
           <div className="topbar__logo-icon">A</div>
           <span className="topbar__brand">Appetizer</span>
-        </div>
+        </a>
       </div>
 
       {/* Center: Project Name */}
