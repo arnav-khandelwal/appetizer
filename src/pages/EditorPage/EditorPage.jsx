@@ -18,7 +18,7 @@ const EditorPage = () => {
         projectName={projectName}
         onProjectNameChange={setProjectName}
       >
-        <CanvasArea appIR={productCardExample} currentPageId="page-1" />
+        <CanvasArea appIR={exampleAppIR} currentPageId="page-1" />
       </EditorLayout>
     </div>
   );

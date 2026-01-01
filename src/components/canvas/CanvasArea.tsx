@@ -29,12 +29,23 @@ interface CanvasAreaProps {
 // Context to provide IR to all descendant components
 export const IRContext = createContext<AppIR | null>(null);
 
+// Context to provide selection state and handlers
+export interface SelectionContext {
+  selectedNodeId: string | null;
+  setSelectedNodeId: (nodeId: string | null) => void;
+}
+
+export const SelectionContext = createContext<SelectionContext | null>(null);
+
 export const CanvasArea = ({ appIR, currentPageId }: CanvasAreaProps) => {
   // Editor state: selected device (NOT part of IR)
   const [selectedDevice, setSelectedDevice] = useState(DEFAULT_DEVICE);
   
   // Editor state: canvas zoom (NOT part of IR)
   const [zoom, setZoom] = useState(0.8);
+  
+  // Editor state: selected node (NOT part of IR)
+  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
 
   // Find the current page
   const currentPage = appIR.pages.find(page => page.id === currentPageId);
@@ -63,37 +74,47 @@ export const CanvasArea = ({ appIR, currentPageId }: CanvasAreaProps) => {
     );
   }
 
+  const handleCanvasClick = () => {
+    // Clear selection when clicking on empty canvas
+    setSelectedNodeId(null);
+  };
+
   return (
     <IRContext.Provider value={appIR}>
-      <div className="canvas-area">
-        {/* Floating device selector (editor UI) */}
-        <DeviceSelector 
-          selectedDevice={selectedDevice}
-          onDeviceChange={setSelectedDevice}
-        />
+      <SelectionContext.Provider value={{ selectedNodeId, setSelectedNodeId }}>
+        <div className="canvas-area">
+          {/* Floating device selector (editor UI) */}
+          <DeviceSelector 
+            selectedDevice={selectedDevice}
+            onDeviceChange={setSelectedDevice}
+          />
 
-        {/* Canvas viewport with zoom transform */}
-        <div className="canvas-viewport">
+          {/* Canvas viewport with zoom transform */}
           <div 
-            className="canvas-scale"
-            style={{ 
-              transform: `scale(${zoom})`,
-              transformOrigin: 'center center'
-            }}
+            className="canvas-viewport"
+            onClick={handleCanvasClick}
           >
-            <DeviceFrame device={selectedDevice}>
-              {/* IR renderer starts here */}
-              <NodeRenderer nodeId={rootNodeId} />
-            </DeviceFrame>
+            <div 
+              className="canvas-scale"
+              style={{ 
+                transform: `scale(${zoom})`,
+                transformOrigin: 'center center'
+              }}
+            >
+              <DeviceFrame device={selectedDevice}>
+                {/* IR renderer starts here */}
+                <NodeRenderer nodeId={rootNodeId} />
+              </DeviceFrame>
+            </div>
           </div>
-        </div>
 
-        {/* Zoom controls (editor UI) */}
-        <ZoomControls 
-          zoom={zoom}
-          onZoomChange={setZoom}
-        />
-      </div>
+          {/* Zoom controls (editor UI) */}
+          <ZoomControls 
+            zoom={zoom}
+            onZoomChange={setZoom}
+          />
+        </div>
+      </SelectionContext.Provider>
     </IRContext.Provider>
   );
 };

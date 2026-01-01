@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use '../../../styles/variables.scss' as *;
 
 .zoom-controls {
@@ -34,7 +35,7 @@
   }
   
   &:active:not(:disabled) {
-    background: darken($color-base-bg, 5%);
+    background: color.adjust($color-base-bg, $lightness: -5%);
     transform: scale(0.95);
   }
   
@@ -73,7 +74,7 @@
   }
   
   &:active {
-    background: darken($color-base-bg, 5%);
+    background: color.adjust($color-base-bg, $lightness: -5%);
     transform: scale(0.95);
   }
   

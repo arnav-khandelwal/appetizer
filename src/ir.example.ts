@@ -185,7 +185,7 @@ export const exampleAppIR: AppIR = {
       // Style: Primary brand color
       style: {
         borderRadius: 8,
-        backgroundColor: '#f6733bff',
+
       },
       
       // Layout: Full width button
@@ -196,8 +196,8 @@ export const exampleAppIR: AppIR = {
       
       // Button-specific properties
       props: {
-        label: 'Login Again Brother',
-        variant: ButtonVariant.PRIMARY,
+        label: 'Login Again',
+        variant: ButtonVariant.SECONDARY,
         onPress: 'action-login', // Event handler ID
       },
     },

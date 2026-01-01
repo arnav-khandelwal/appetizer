@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
-  padding: $spacing-xl;
+  padding: 0;
   
   // Smooth scrolling
   scroll-behavior: smooth;
@@ -28,6 +28,15 @@
   
   // Ensure proper rendering during scale
   will-change: transform;
+  
+  // Add padding to ensure scrollable area in all directions when zoomed
+  // This padding creates space for the scaled content to grow into
+  padding: 200px;
+  
+  // Ensure the padding doesn't affect the device frame positioning
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .canvas-error {
