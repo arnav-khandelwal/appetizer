@@ -61,6 +61,16 @@
   &__panel {
     margin-bottom: $spacing-lg;
   }
+
+  &__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: $color-text-secondary;
+    text-align: center;
+    font-size: $font-size-sm;
+  }
 }
 
 /* === PROPERTY SKELETON (PLACEHOLDER UI) === */

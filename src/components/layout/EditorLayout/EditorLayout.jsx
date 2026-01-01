@@ -13,12 +13,20 @@ import './EditorLayout.scss';
  * - children: Main canvas content
  * - projectName: Current project name
  * - onProjectNameChange: Handler for project name changes
+ * - appIR: The current app intermediate representation
+ * - onUpdateAppIR: Handler for IR updates
+ * - selectedNodeId: Currently selected node ID
+ * - onSelectNode: Handler for node selection
  * - className: Additional CSS classes
  */
 const EditorLayout = ({ 
   children, 
   projectName,
   onProjectNameChange,
+  appIR,
+  onUpdateAppIR,
+  selectedNodeId,
+  onSelectNode,
   className = '',
   ...props 
 }) => {
@@ -41,7 +49,11 @@ const EditorLayout = ({
         </main>
 
         {/* Right Sidebar - Properties Panel */}
-        <RightSidebar />
+        <RightSidebar 
+          selectedNodeId={selectedNodeId}
+          appIR={appIR}
+          onUpdateAppIR={onUpdateAppIR}
+        />
       </div>
     </div>
   );

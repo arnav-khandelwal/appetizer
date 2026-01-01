@@ -24,6 +24,12 @@ interface CanvasAreaProps {
   
   /** Current page to render */
   currentPageId: string;
+  
+  /** Currently selected node ID (from parent) */
+  selectedNodeId?: string | null;
+  
+  /** Handler for node selection (from parent) */
+  onSelectNode?: (nodeId: string | null) => void;
 }
 
 // Context to provide IR to all descendant components
@@ -37,15 +43,17 @@ export interface SelectionContext {
 
 export const SelectionContext = createContext<SelectionContext | null>(null);
 
-export const CanvasArea = ({ appIR, currentPageId }: CanvasAreaProps) => {
+export const CanvasArea = ({ appIR, currentPageId, selectedNodeId: parentSelectedNodeId, onSelectNode }: CanvasAreaProps) => {
   // Editor state: selected device (NOT part of IR)
   const [selectedDevice, setSelectedDevice] = useState(DEFAULT_DEVICE);
   
   // Editor state: canvas zoom (NOT part of IR)
   const [zoom, setZoom] = useState(0.8);
   
-  // Editor state: selected node (NOT part of IR)
-  const [selectedNodeId, setSelectedNodeId] = useState<string | null>(null);
+  // Use parent-controlled selection if provided, otherwise use local state
+  const [localSelectedNodeId, setLocalSelectedNodeId] = useState<string | null>(null);
+  const selectedNodeId = parentSelectedNodeId ?? localSelectedNodeId;
+  const setSelectedNodeId = onSelectNode ?? setLocalSelectedNodeId;
 
   // Find the current page
   const currentPage = appIR.pages.find(page => page.id === currentPageId);
